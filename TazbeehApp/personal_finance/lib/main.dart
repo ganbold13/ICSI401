@@ -37,22 +37,34 @@ class MyApp extends StatelessWidget {
             onSurface: Colors.black,
             brightness: Brightness.light),
         textTheme: const TextTheme(
-            displayLarge: TextStyle(
-              fontSize: 48,
-              fontWeight: FontWeight.bold,
-            ),
-            titleLarge: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            ),
-            bodyMedium: TextStyle(fontSize: 24),
-            displaySmall: TextStyle(fontSize: 18),
-            labelSmall: TextStyle(
-                fontSize: 14, color: Color.fromARGB(255, 165, 165, 165))),
+          displayLarge: TextStyle(
+            fontSize: 48,
+            fontWeight: FontWeight.bold,
+          ),
+          displayMedium: TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+          titleLarge: TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
+          bodyMedium: TextStyle(fontSize: 24),
+          bodySmall: TextStyle(fontSize: 18),
+          displaySmall: TextStyle(fontSize: 18),
+          labelSmall: TextStyle(
+            fontSize: 14,
+            color: Color.fromARGB(255, 165, 165, 165),
+          ),
+          labelMedium: TextStyle(
+            fontSize: 18,
+            color: Color.fromARGB(255, 165, 165, 165),
+          ),
+        ),
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const WalletScreen(),
         '/onboarding': (context) => const OnBoardingScreen(),
         '/register': (context) => const RegisterScreen(),
         '/login': (context) => const LoginScreen(),

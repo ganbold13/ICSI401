@@ -23,13 +23,22 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Stack(
           children: [
             HeaderBanner(
-              bannerText: "Welcome to Login",
+              bannerText: "Тавтай морилно уу!",
             ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
               child: ListView(
                 children: [
                   Header_Space(),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/images/login.png'),
+                      ),
+                    ),
+                  ),
                   SizedBox(height: space),
                   CustomInputField(
                     text: "Цахим шуудангаа оруулна уу",
@@ -39,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: "Нууц үгээ оруулна уу",
                   ),
                   SizedBox(height: space * 2),
-                  FlatButton(text: "Нэвтрэх", path: '/home'),
+                  FlatButton(text: "Нэвтрэх", path: '/wallet'),
                   SizedBox(
                     height: space,
                   ),

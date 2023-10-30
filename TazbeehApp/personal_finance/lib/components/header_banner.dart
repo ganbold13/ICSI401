@@ -14,12 +14,17 @@ class HeaderBanner extends StatelessWidget {
           color: Theme.of(context).primaryColor,
           borderRadius:
               const BorderRadius.vertical(bottom: Radius.elliptical(300, 50))),
-      child: Text(
-        bannerText,
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium!
-            .copyWith(color: Colors.white),
+      child: Container(
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(horizontal: 100),
+        child: Text(
+          bannerText,
+          textAlign: TextAlign.center,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: Colors.white),
+        ),
       ),
     );
   }

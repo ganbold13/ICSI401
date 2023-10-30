@@ -22,7 +22,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Container(
         child: Stack(
           children: [
-            HeaderBanner(bannerText: "Welcome to Register"),
+            HeaderBanner(bannerText: "Орлого зарлагаа хянахад тань тусална"),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
               child: ListView(
