@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finance/components/header_bg.dart';
 
 class HeaderBanner extends StatelessWidget {
   final String bannerText;
@@ -7,25 +8,25 @@ class HeaderBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity + 300,
-      height: MediaQuery.of(context).size.height * 0.3,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          borderRadius:
-              const BorderRadius.vertical(bottom: Radius.elliptical(300, 50))),
-      child: Container(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height * 0.3,
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(horizontal: 100),
-        child: Text(
-          bannerText,
-          textAlign: TextAlign.center,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(color: Colors.white),
-        ),
-      ),
-    );
+        child: Stack(
+          children: [
+            const HeaderBackground(),
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: Text(
+                bannerText,
+                textAlign: TextAlign.center,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: Colors.white),
+              ),
+            ),
+          ],
+        ));
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finance/components/home/header_details.dart';
 
 class Popup extends StatelessWidget {
   final double padding;
@@ -10,6 +11,7 @@ class Popup extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        HeaderDetails(),
         Container(
           padding: EdgeInsets.symmetric(horizontal: padding),
           height: MediaQuery.of(context).size.height * 0.8,

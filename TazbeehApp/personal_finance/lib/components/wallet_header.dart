@@ -16,18 +16,15 @@ class WalletHeader extends StatelessWidget {
         children: [
           Text(
             "Нийт үлдэгдэл",
-            style: Theme.of(context).textTheme.labelMedium,
+            style: Theme.of(context).textTheme.labelLarge,
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
           Text(
-            '2548.00',
-            style: Theme.of(context).textTheme.displayMedium,
+            '\$ 2548.00',
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
-            height: 30,
-          ),
+          SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -51,6 +48,7 @@ class WalletHeader extends StatelessWidget {
               ),
             ],
           ),
+          
         ],
       ),
     );

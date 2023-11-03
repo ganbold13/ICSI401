@@ -60,11 +60,15 @@ class MyApp extends StatelessWidget {
             fontSize: 18,
             color: Color.fromARGB(255, 165, 165, 165),
           ),
+          labelLarge: TextStyle(
+            fontSize: 22,
+            color: Color.fromARGB(255, 165, 165, 165),
+          ),
         ),
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const WalletScreen(),
+        '/': (context) => const HomeScreen(),
         '/onboarding': (context) => const OnBoardingScreen(),
         '/register': (context) => const RegisterScreen(),
         '/login': (context) => const LoginScreen(),
