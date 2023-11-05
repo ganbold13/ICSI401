@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomInputField extends StatelessWidget {
   final String text;
+  double? width;
   double? radius;
   Widget? pre;
   Widget? suf;
   CustomInputField(
-      {super.key, required this.text, this.pre, this.suf, this.radius});
+      {super.key,
+      required this.text,
+      this.pre,
+      this.suf,
+      this.radius,
+      this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 60,
+      width: width ?? 120,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius ?? 16),
         color: Colors.white,

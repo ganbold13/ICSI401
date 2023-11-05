@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CustomTextButton extends StatelessWidget {
   final Function onPressed;
   final String text;
@@ -16,7 +17,7 @@ class CustomTextButton extends StatelessWidget {
         },
         child: Text(
           text,
-          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+          style: Theme.of(context).textTheme.bodySmall!.copyWith(
               color: Theme.of(context).colorScheme.primary,
               fontWeight: FontWeight.bold),
         ));

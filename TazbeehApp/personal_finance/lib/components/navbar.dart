@@ -1,45 +1,63 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class NavBar extends StatelessWidget {
-  const NavBar({super.key});
+  NavBar({super.key, required this.middleSpace});
+  final bool middleSpace;
+  double iconSize = 30;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 10, right: 10),
-      height: 45,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
+      height: 75,
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 10,
+            offset: const Offset(0, -3)),
+      ]),
+      child: NavigationBar(
+        backgroundColor: Colors.white,
+        destinations: <Widget>[
           IconButton(
-            icon: Image.asset("assets/images/home_icon.png"),
+            icon: Icon(
+              Icons.home_outlined,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            iconSize: iconSize,
             onPressed: () {
-              //home page ru orno
               Navigator.pushNamed(context, '/home');
             },
           ),
           IconButton(
-            icon: Image.asset("assets/images/statistics_icon.png"),
+            icon: Icon(
+              Icons.insert_chart_outlined,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            iconSize: iconSize,
             onPressed: () {
               //statis
             },
           ),
-          FloatingActionButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('/addexpenses');
-            },
-            backgroundColor: const Color(0xff2F7E79),
-            child: const Icon(Icons.add),
-          ),
+          if (middleSpace) const SizedBox(),
           IconButton(
-            icon: Image.asset("assets/images/account_icon.png"),
+            icon: Icon(
+              Icons.account_balance_wallet_outlined,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            iconSize: iconSize,
             onPressed: () {
               //account
-              Navigator.of(context).pushNamed('/wallet');
+              Navigator.pushNamed(context, '/wallet');
             },
           ),
           IconButton(
-            icon: Image.asset("assets/images/personal_icon.png"),
+            icon: Icon(
+              Icons.person_outline,
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+            iconSize: iconSize,
             onPressed: () {
               //s
             },

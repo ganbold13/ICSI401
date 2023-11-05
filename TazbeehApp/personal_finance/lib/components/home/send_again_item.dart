@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class SendAgainItem extends StatelessWidget {
   double size = 75;
   SendAgainItem({super.key});
@@ -12,7 +13,7 @@ class SendAgainItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.black54,
         borderRadius: BorderRadius.circular(size),
-        image: DecorationImage(
+        image: const DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage("assets/images/person_icon.png"),
         ),

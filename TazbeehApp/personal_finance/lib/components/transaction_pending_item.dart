@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HistoryItem extends StatelessWidget {
+class PendingItem extends StatelessWidget {
   final String image;
   final String name;
   final String date;
   final double amount;
-  const HistoryItem(
+  const PendingItem(
       {super.key,
       required this.image,
       required this.name,
@@ -16,7 +16,7 @@ class HistoryItem extends StatelessWidget {
     if (amount > 0) {
       return "+ \$ $amount";
     } else {
-      return "- \$ ${-amount}";
+      return "+ \$ ${-amount}";
     }
   }
 
@@ -61,15 +61,7 @@ class HistoryItem extends StatelessWidget {
             ),
           ],
         ),
-        Text(
-          calculateText(),
-          style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w600,
-              color: amount > 0
-                  ? const Color(0xff25A969)
-                  : const Color(0xffF95B51)),
-        ),
+        TextButton(onPressed: () {}, child: const Text("Төлөх"))
       ],
     );
   }

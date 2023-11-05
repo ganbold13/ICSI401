@@ -17,24 +17,41 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        body: const Center(
-          child: Column(
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  HeaderBackground(),
-                  HeaderDetails(),
-                  BalanceCard(),
-                ],
-              ),
-              TransactionHistory(),
-              SendAgain(),
-            ],
+      body: const Center(
+        child: Column(
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                HeaderBackground(),
+                HeaderDetails(),
+                BalanceCard(),
+              ],
+            ),
+            TransactionHistory(),
+            SendAgain(),
+          ],
+        ),
+      ),
+      floatingActionButton: InkWell(
+        onTap: () => Navigator.pushNamed(context, '/addexpenses'),
+        child: Container(
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.primary,
+            borderRadius: BorderRadius.circular(40),
+          ),
+          child: const Icon(
+            Icons.add,
+            size: 40,
+            color: Colors.white,
           ),
         ),
-        persistentFooterButtons: <Widget>[
-          NavBar()
-        ]);
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: NavBar(
+        middleSpace: true,
+      ),
+    );
   }
 }

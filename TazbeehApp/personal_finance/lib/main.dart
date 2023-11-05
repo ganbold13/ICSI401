@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             background: Colors.white,
             onBackground: Color(0xFFEEEEEE),
             primary: Color(0xff429690),
-            onPrimary: Colors.white,
+            onPrimary: Color.fromARGB(255, 185, 185, 185),
             secondary: Color(0xFF32819A),
             onSecondary: Colors.white,
             error: Colors.red,
@@ -45,13 +45,17 @@ class MyApp extends StatelessWidget {
             fontSize: 40,
             fontWeight: FontWeight.bold,
           ),
+          displaySmall: TextStyle(fontSize: 32),
           titleLarge: TextStyle(
-            fontSize: 32,
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+          titleSmall: TextStyle(
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
           bodyMedium: TextStyle(fontSize: 24),
           bodySmall: TextStyle(fontSize: 18),
-          displaySmall: TextStyle(fontSize: 18),
           labelSmall: TextStyle(
             fontSize: 14,
             color: Color.fromARGB(255, 165, 165, 165),
@@ -68,7 +72,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen(),
+        '/': (context) => const ConnectWalletScreen(),
         '/onboarding': (context) => const OnBoardingScreen(),
         '/register': (context) => const RegisterScreen(),
         '/login': (context) => const LoginScreen(),

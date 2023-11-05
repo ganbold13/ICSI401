@@ -19,55 +19,57 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onBackground,
-      body: Container(
-        child: Stack(
-          children: [
-            HeaderBanner(bannerText: "Орлого зарлагаа хянахад тань тусална"),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
-              child: ListView(
-                children: [
-                  Header_Space(),
-                  SizedBox(height: space),
-                  CustomInputField(
-                    text: "Бүтэн нэрээ оруулна уу",
-                  ),
-                  SizedBox(height: space),
-                  CustomInputField(
-                    text: "Цахим шуудангаа оруулна уу",
-                  ),
-                  SizedBox(height: space),
-                  CustomInputField(
-                    text: "Нууц үгээ оруулна уу",
-                  ),
-                  SizedBox(height: space),
-                  CustomInputField(
-                    text: "Нууц үгээ дахин оруулна уу",
-                  ),
-                  SizedBox(height: space * 2),
-                  FlatButton(text: "Бүртгүүлэх", path: '/login'),
-                  SizedBox(
-                    height: space,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Хэрэглэгчийн эрхтэй юу?",
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
-                      CustomTextButton(
-                        text: "Нэвтрэх",
-                        path: '/login',
-                        onPressed: () {},
-                      )
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+      body: Stack(
+        children: [
+          const HeaderBanner(bannerText: "Орлого зарлагаа хянахад тань тусална"),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+            child: ListView(
+              children: [
+                const HeaderSpace(),
+                SizedBox(height: space),
+                CustomInputField(
+                  text: "Бүтэн нэрээ оруулна уу",
+                ),
+                SizedBox(height: space),
+                CustomInputField(
+                  text: "Цахим шуудангаа оруулна уу",
+                ),
+                SizedBox(height: space),
+                CustomInputField(
+                  text: "Нууц үгээ оруулна уу",
+                ),
+                SizedBox(height: space),
+                CustomInputField(
+                  text: "Нууц үгээ дахин оруулна уу",
+                ),
+                SizedBox(height: space * 2),
+                const FlatButton(
+                  text: "Бүртгүүлэх",
+                  path: '/login',
+                  isPrimary: true,
+                ),
+                SizedBox(
+                  height: space,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Хэрэглэгчийн эрхтэй юу?",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    CustomTextButton(
+                      text: "Нэвтрэх",
+                      path: '/login',
+                      onPressed: () {},
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

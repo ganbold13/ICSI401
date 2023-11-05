@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class IconButtonWithLabel extends StatelessWidget {
-  final size;
-  final Function OnPressed;
+  final double size;
+  final String path;
   final IconData buttonIcon;
   final String labelText;
   const IconButtonWithLabel(
       {super.key,
       required this.size,
-      required this.OnPressed,
+      required this.path,
       required this.buttonIcon,
       required this.labelText});
   @override
@@ -22,10 +22,13 @@ class IconButtonWithLabel extends StatelessWidget {
               border: Border.all(color: Theme.of(context).colorScheme.primary),
               color: Colors.white,
               borderRadius: BorderRadius.circular(size / 2)),
-          child: Icon(
-            buttonIcon,
-            size: size / 2,
-            color: Theme.of(context).colorScheme.primary,
+          child: InkWell(
+            onTap: () => Navigator.pushNamed(context, path),
+            child: Icon(
+              buttonIcon,
+              size: size / 2,
+              color: Theme.of(context).colorScheme.primary,
+            ),
           ),
         ),
         const SizedBox(

@@ -1,80 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finance/components/header_bg.dart';
+import 'package:personal_finance/components/input_field.dart';
 import 'package:personal_finance/components/navbar.dart';
-import 'package:personal_finance/screens/wallet.dart';
+import 'package:personal_finance/components/popup.dart';
 
-class AddExpenseScreen extends StatefulWidget {
+class AddExpenseScreen extends StatelessWidget {
   const AddExpenseScreen({Key? key}) : super(key: key);
 
   @override
-  State<AddExpenseScreen> createState() => _AddExpense();
-}
-
-class _AddExpense extends State<AddExpenseScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        appBar: AppBar(
-          title: const Text("Add Expense"),
-        ),
-        body: Center(
-          child: Column(
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  SizedBox(
-                    height: 76,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        IconButton(
-                            icon: const Icon(
-                              Icons.arrow_back,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {
-                              debugPrint('Clicked back!');
-                            }),
-                        const Text(
-                          "Wallet",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0,
-                              color: Colors.white),
-                        ),
-                        IconButton(
-                            icon: const Icon(
-                              Icons.notifications_outlined,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {
-                              debugPrint('Clicked notification!');
-                            })
-                      ],
-                    ),
+      backgroundColor: Colors.grey.shade200,
+      body: Stack(
+        children: [
+          const HeaderBackground(),
+          Popup(
+            title: "Зарлага нэмэх",
+            padding: 20,
+            child: Container(
+              height: 400,
+              padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomInputField(
+                    text: "Гүйлгээний нэр",
+                    width: double.infinity,
                   ),
-                  Container(
-                    width: 400,
-                    height: 260,
-                    child: const Image(
-                      image: AssetImage("assets/images/home_page_top.png"),
-                      fit: BoxFit.fill,
-                    ),
+                  CustomInputField(
+                    text: "Үнийн дүн",
+                    width: double.infinity,
                   ),
-                  Container(
-                    width: 300,
-                    height: 400,
-                    color: Colors.white,
-                    margin: EdgeInsets.only(left: 48),
-                    child: Column(children: <Widget>[]),
-                  )
+                  CustomInputField(
+                    text: "Огноо",
+                    width: double.infinity,
+                  ),
+                  CustomInputField(
+                    text: "Гүйлгээний нэр",
+                    width: double.infinity,
+                  ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
-        persistentFooterButtons: <Widget>[
-          NavBar(),
-        ]);
+        ],
+      ),
+      bottomNavigationBar: NavBar(middleSpace: false),
+    );
   }
 }

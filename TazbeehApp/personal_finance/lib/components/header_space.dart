@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Header_Space extends StatelessWidget {
-  const Header_Space({super.key});
+class HeaderSpace extends StatelessWidget {
+  const HeaderSpace({super.key});
 
   @override
   Widget build(BuildContext context) {

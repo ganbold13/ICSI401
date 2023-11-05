@@ -19,58 +19,60 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.onBackground,
-      body: Container(
-        child: Stack(
-          children: [
-            HeaderBanner(
-              bannerText: "Тавтай морилно уу!",
-            ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
-              child: ListView(
-                children: [
-                  Header_Space(),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/images/login.png'),
-                      ),
+      body: Stack(
+        children: [
+          const HeaderBanner(
+            bannerText: "Тавтай морилно уу!",
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+            child: ListView(
+              children: [
+                const HeaderSpace(),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/images/login.png'),
                     ),
                   ),
-                  SizedBox(height: space),
-                  CustomInputField(
-                    text: "Цахим шуудангаа оруулна уу",
-                  ),
-                  SizedBox(height: space),
-                  CustomInputField(
-                    text: "Нууц үгээ оруулна уу",
-                  ),
-                  SizedBox(height: space * 2),
-                  FlatButton(text: "Нэвтрэх", path: '/wallet'),
-                  SizedBox(
-                    height: space,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Хэрэглэгчийн эрхгүй юу?",
-                        style: Theme.of(context).textTheme.displaySmall,
-                      ),
-                      CustomTextButton(
-                        text: "Бүртгүүлэх",
-                        path: '/register',
-                        onPressed: () {},
-                      )
-                    ],
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+                SizedBox(height: space),
+                CustomInputField(
+                  text: "Цахим шуудангаа оруулна уу",
+                ),
+                SizedBox(height: space),
+                CustomInputField(
+                  text: "Нууц үгээ оруулна уу",
+                ),
+                SizedBox(height: space * 2),
+                const FlatButton(
+                  text: "Нэвтрэх",
+                  path: '/home',
+                  isPrimary: true,
+                ),
+                SizedBox(
+                  height: space,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Хэрэглэгчийн эрхгүй юу?",
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    CustomTextButton(
+                      text: "Бүртгүүлэх",
+                      path: '/register',
+                      onPressed: () {},
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

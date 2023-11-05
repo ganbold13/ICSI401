@@ -9,46 +9,47 @@ class WalletHeader extends StatelessWidget {
     double buttonSize = 65;
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 50, horizontal: 80),
+      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 80),
       alignment: Alignment.center,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             "Нийт үлдэгдэл",
-            style: Theme.of(context).textTheme.labelLarge,
+            style: Theme.of(context).textTheme.labelSmall,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             '\$ 2548.00',
-            style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+            style: Theme.of(context)
+                .textTheme
+                .displaySmall!
+                .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButtonWithLabel(
                 size: buttonSize,
-                OnPressed: () {},
                 buttonIcon: Icons.add,
+                path: '/connectwallet',
                 labelText: "Нэмэх",
               ),
               IconButtonWithLabel(
                 size: buttonSize,
-                OnPressed: () {},
+                path: '/billpayment',
                 buttonIcon: Icons.payment,
                 labelText: "Төлөх",
               ),
               IconButtonWithLabel(
                 size: buttonSize,
-                OnPressed: () {},
+                path: '',
                 buttonIcon: Icons.message,
                 labelText: "Илгээх",
               ),
             ],
           ),
-          
         ],
       ),
     );

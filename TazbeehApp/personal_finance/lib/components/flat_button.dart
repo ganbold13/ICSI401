@@ -3,29 +3,33 @@ import 'package:flutter/material.dart';
 class FlatButton extends StatelessWidget {
   final String text;
   final String path;
-  FlatButton({super.key, required this.text, required this.path});
+  final bool isPrimary;
+  const FlatButton(
+      {super.key,
+      required this.text,
+      required this.path,
+      required this.isPrimary});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        print(path);
-        Navigator.pushNamed(context, path);
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(35), // Change the border radius
-        ),
-      ),
+    return InkWell(
+      onTap: () => Navigator.pushNamed(context, path),
       child: Container(
         alignment: Alignment.center,
-        width: 345,
+        // width: 345,
         height: 75,
+        decoration: BoxDecoration(
+          color:
+              isPrimary ? Theme.of(context).colorScheme.primary : Colors.white,
+          borderRadius: BorderRadius.circular(40),
+          border: Border.all(width: 2, color: Theme.of(context).primaryColor),
+        ),
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                color: Colors.white,
+                color: isPrimary
+                    ? Colors.white
+                    : Theme.of(context).colorScheme.primary,
                 fontWeight: FontWeight.bold,
               ),
         ),

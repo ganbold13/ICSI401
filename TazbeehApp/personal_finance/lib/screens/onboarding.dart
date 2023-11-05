@@ -26,7 +26,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(60),
               child: Column(
                 children: [
                   Text(
@@ -38,7 +38,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         .copyWith(color: Theme.of(context).colorScheme.primary),
                   ),
                   const SizedBox(height: 30),
-                  FlatButton(text: "Эхлэх", path: '/register')
+                  const FlatButton(
+                    text: "Эхлэх",
+                    path: '/register',
+                    isPrimary: true,
+                  )
                 ],
               ),
             )
