@@ -18,25 +18,49 @@ class AddExpenseScreen extends StatelessWidget {
             title: "Зарлага нэмэх",
             padding: 20,
             child: Container(
-              height: 400,
+              // height: 400,
               padding: const EdgeInsets.fromLTRB(20, 40, 20, 0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    "ГҮЙЛГЭЭНИЙ НЭР",
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  const SizedBox(height: 10),
                   CustomInputField(
-                    text: "Гүйлгээний нэр",
+                    text: "",
                     width: double.infinity,
                   ),
+                  const SizedBox(height: 30),
+                  Text(
+                    "ҮНИЙН ДҮН",
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  const SizedBox(height: 10),
                   CustomInputField(
-                    text: "Үнийн дүн",
+                    text: "",
                     width: double.infinity,
                   ),
+                  const SizedBox(height: 30),
+                  Text(
+                    "ОГНОО",
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  const SizedBox(height: 10),
                   CustomInputField(
-                    text: "Огноо",
+                    text: "",
                     width: double.infinity,
                   ),
+                  const SizedBox(height: 30),
+                  Text(
+                    "ТӨЛБӨР",
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  const SizedBox(height: 10),
                   CustomInputField(
-                    text: "Гүйлгээний нэр",
+                    text: "",
                     width: double.infinity,
                   ),
                 ],

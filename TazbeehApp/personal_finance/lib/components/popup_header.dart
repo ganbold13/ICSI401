@@ -12,7 +12,7 @@ class PopupHeaderDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            onTap: () => Navigator.pushNamed(context, '/home'),
+            onTap: () => Navigator.pop(context),
             child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.white,

@@ -38,7 +38,7 @@ class WalletHeader extends StatelessWidget {
               ),
               IconButtonWithLabel(
                 size: buttonSize,
-                path: '/billpayment',
+                path: '/billdetails',
                 buttonIcon: Icons.payment,
                 labelText: "Төлөх",
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finance/screens/bill_payment_done.dart';
 
 import './screens/splash.dart';
 import 'screens/add_expense.dart';
@@ -50,6 +51,10 @@ class MyApp extends StatelessWidget {
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
+          titleMedium: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
           titleSmall: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -72,7 +77,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const ConnectWalletScreen(),
+        '/': (context) => const SplashScreen(),
         '/onboarding': (context) => const OnBoardingScreen(),
         '/register': (context) => const RegisterScreen(),
         '/login': (context) => const LoginScreen(),
@@ -82,6 +87,7 @@ class MyApp extends StatelessWidget {
         '/addexpenses': (context) => const AddExpenseScreen(),
         '/billdetails': (context) => const BillDetailsScreen(),
         '/billpayment': (context) => const BillPaymentScreen(),
+        '/billdone': (context) => const BillPaymentDoneScreen(),
       },
     );
   }

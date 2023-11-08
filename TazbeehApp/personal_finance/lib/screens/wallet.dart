@@ -28,12 +28,13 @@ class WalletScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.all(6.0),
+                      // padding: const EdgeInsets.all(6.0),
                       decoration: BoxDecoration(
                         color: Colors.grey.shade100,
                         borderRadius: BorderRadius.circular(24),
                       ),
                       child: TabBar(
+                        indicatorPadding: const EdgeInsets.all(4),
                         indicator: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),

@@ -26,8 +26,12 @@ class CustomInputField extends StatelessWidget {
       ),
       child: TextField(
         decoration: InputDecoration(
+          hoverColor: Theme.of(context).colorScheme.primary,
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(radius ?? 16))),
+            borderRadius: BorderRadius.all(
+              Radius.circular(radius ?? 16),
+            ),
+          ),
           labelText: text,
           labelStyle: Theme.of(context).textTheme.labelSmall,
           contentPadding:
