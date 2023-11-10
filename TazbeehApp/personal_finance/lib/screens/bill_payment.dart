@@ -21,7 +21,7 @@ class BillPaymentScreen extends StatelessWidget {
             padding: 0,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
@@ -37,9 +37,11 @@ class BillPaymentScreen extends StatelessWidget {
                     ],
                   ),
                   FlatButton(
-                      text: "Баталгаажуулах",
-                      path: "/billdone",
-                      isPrimary: true)
+                    text: "Баталгаажуулах",
+                    path: "/billdone",
+                    isPrimary: true,
+                    onPress: () {},
+                  )
                 ],
               ),
             ),

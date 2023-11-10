@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_finance/components/flat_button.dart';
 
@@ -9,6 +10,15 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  void initializeAppAndNavigate() async {
+    try {
+      await Firebase.initializeApp();
+      Navigator.pushNamed(context, '/register');
+    } catch (e) {
+      print('Error initializing Firebase: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,10 +48,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         .copyWith(color: Theme.of(context).colorScheme.primary),
                   ),
                   const SizedBox(height: 30),
-                  const FlatButton(
+                  FlatButton(
                     text: "Эхлэх",
                     path: '/register',
                     isPrimary: true,
+                    onPress: () async {
+                      initializeAppAndNavigate();
+                    },
                   )
                 ],
               ),

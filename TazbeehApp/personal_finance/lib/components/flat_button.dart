@@ -4,16 +4,18 @@ class FlatButton extends StatelessWidget {
   final String text;
   final String path;
   final bool isPrimary;
+  final Function onPress;
   const FlatButton(
       {super.key,
       required this.text,
       required this.path,
-      required this.isPrimary});
+      required this.isPrimary,
+      required this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, path),
+      onTap: () => onPress(),
       child: Container(
         alignment: Alignment.center,
         // width: 345,

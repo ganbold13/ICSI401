@@ -47,10 +47,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   text: "Нууц үгээ оруулна уу",
                 ),
                 SizedBox(height: space * 2),
-                const FlatButton(
+                FlatButton(
                   text: "Нэвтрэх",
                   path: '/home',
                   isPrimary: true,
+                  onPress: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
                 ),
                 SizedBox(
                   height: space,

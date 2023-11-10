@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_finance/screens/bill_payment_done.dart';
 
@@ -12,7 +13,11 @@ import 'screens/onboarding.dart';
 import 'screens/register.dart';
 import 'screens/wallet.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  print("Hello");
+  await Firebase.initializeApp();
+  print("Hello1");
   runApp(const MyApp());
 }
 

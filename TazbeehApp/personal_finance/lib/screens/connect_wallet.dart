@@ -172,10 +172,11 @@ class ConnectWalletScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const FlatButton(
+                        FlatButton(
                           text: "Дараах",
                           path: "",
                           isPrimary: false,
+                          onPress: () {},
                         )
                       ],
                     ),

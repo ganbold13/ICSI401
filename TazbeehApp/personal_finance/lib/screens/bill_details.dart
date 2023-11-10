@@ -53,7 +53,11 @@ class BillDetailsScreen extends StatelessWidget {
                     ],
                   ),
                   FlatButton(
-                      text: "Төлөх", path: "/billpayment", isPrimary: true)
+                    text: "Төлөх",
+                    path: "/billpayment",
+                    isPrimary: true,
+                    onPress: () {},
+                  )
                 ],
               ),
             ),

@@ -137,9 +137,11 @@ class BillPaymentDoneScreen extends StatelessWidget {
                     ],
                   ),
                   FlatButton(
-                      text: "Баталгаажуулах",
-                      path: "/billpayment",
-                      isPrimary: true)
+                    text: "Баталгаажуулах",
+                    path: "/billpayment",
+                    isPrimary: true,
+                    onPress: () {},
+                  )
                 ],
               ),
             ),
