@@ -1,7 +1,5 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_finance/components/flat_button.dart';
-import 'package:personal_finance/firebase_options.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -11,16 +9,6 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  void initializeAppAndNavigate() async {
-    try {
-      await Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform);
-      Navigator.pushNamed(context, '/register');
-    } catch (e) {
-      print('Error initializing Firebase: $e');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,8 +42,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     text: "Эхлэх",
                     path: '/register',
                     isPrimary: true,
-                    onPress: () async {
-                      initializeAppAndNavigate();
+                    onPress: () {
+                      Navigator.pushNamed(context, '/register');
                     },
                   )
                 ],

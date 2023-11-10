@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_finance/components/flat_button.dart';
 import 'package:personal_finance/components/header_banner.dart';
@@ -5,7 +6,6 @@ import 'package:personal_finance/components/header_space.dart';
 import 'package:personal_finance/components/input_field.dart';
 import 'package:personal_finance/components/text_button.dart';
 
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -23,16 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String? _password;
 
   final _auth = FirebaseAuth.instance;
-
-  @override
-  void initState() {
-    super.initState();
-    initializeFirebase();
-  }
-
-  Future<void> initializeFirebase() async {
-    await Firebase.initializeApp();
-  }
+  final db = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +82,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   onPress: () async {
                     print("pressed");
                     try {
-                      final _newuser =
-                          await _auth.createUserWithEmailAndPassword(
-                              email: _email!, password: _password!);
+                      await _auth.createUserWithEmailAndPassword(
+                          email: _email!, password: _password!);
+                      db.collection('users').add({
+                        'name': _name,
+                        'email': _email,
+                      });
                       Navigator.pushNamed(context, '/login');
                     } catch (e) {
                       print(e);
