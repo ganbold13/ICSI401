@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_finance/components/flat_button.dart';
 import 'package:personal_finance/components/header_banner.dart';
@@ -14,6 +15,11 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   double space = 30;
+
+  String? _email;
+  String? _password;
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +47,35 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: space),
                 CustomInputField(
                   text: "Цахим шуудангаа оруулна уу",
+                  onChanged: (value) {
+                    setState(() {
+                      _email = value;
+                    });
+                  },
                 ),
                 SizedBox(height: space),
                 CustomInputField(
                   text: "Нууц үгээ оруулна уу",
+                  onChanged: (value) {
+                    setState(() {
+                      _password = value;
+                    });
+                  },
                 ),
                 SizedBox(height: space * 2),
                 FlatButton(
                   text: "Нэвтрэх",
                   path: '/home',
                   isPrimary: true,
-                  onPress: () {
-                    Navigator.pushNamed(context, '/home');
+                  onPress: () async {
+                    print("pressed");
+                    try {
+                      await _auth.signInWithEmailAndPassword(
+                          email: _email!, password: _password!);
+                      Navigator.pushNamed(context, '/home');
+                    } catch (e) {
+                      print(e);
+                    }
                   },
                 ),
                 SizedBox(

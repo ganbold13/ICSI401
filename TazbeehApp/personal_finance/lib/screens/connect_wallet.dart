@@ -101,6 +101,7 @@ class ConnectWalletScreen extends StatelessWidget {
                                         CustomInputField(
                                           text: "Карт дээрх нэр",
                                           width: double.infinity,
+                                          onChanged: (value) {},
                                         ),
                                         Row(
                                           mainAxisAlignment:
@@ -109,10 +110,12 @@ class ConnectWalletScreen extends StatelessWidget {
                                             CustomInputField(
                                               text: "Картын дугаар",
                                               width: 245,
+                                              onChanged: (value) {},
                                             ),
                                             CustomInputField(
                                               text: "CVC",
                                               width: 170,
+                                              onChanged: (value) {},
                                             ),
                                           ],
                                         ),
@@ -123,10 +126,12 @@ class ConnectWalletScreen extends StatelessWidget {
                                             CustomInputField(
                                               text: "Дуусах хугацаа",
                                               width: 245,
+                                              onChanged: (value) {},
                                             ),
                                             CustomInputField(
                                               text: "ZIP",
                                               width: 170,
+                                              onChanged: (value) {},
                                             ),
                                           ],
                                         ),

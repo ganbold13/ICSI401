@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_finance/components/flat_button.dart';
+import 'package:personal_finance/firebase_options.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -12,7 +13,8 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   void initializeAppAndNavigate() async {
     try {
-      await Firebase.initializeApp();
+      await Firebase.initializeApp(
+          options: DefaultFirebaseOptions.currentPlatform);
       Navigator.pushNamed(context, '/register');
     } catch (e) {
       print('Error initializing Firebase: $e');
@@ -24,7 +26,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
             Container(
               height: MediaQuery.of(context).size.height * 0.7,

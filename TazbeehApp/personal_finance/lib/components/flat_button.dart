@@ -15,7 +15,9 @@ class FlatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onPress(),
+      onTap: () {
+        onPress();
+      },
       child: Container(
         alignment: Alignment.center,
         // width: 345,

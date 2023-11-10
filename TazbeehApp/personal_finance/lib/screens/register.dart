@@ -18,15 +18,21 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   double space = 30;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   initializeFirebase();
-  // }
+  String? _name;
+  String? _email;
+  String? _password;
 
-  // Future<void> initializeFirebase() async {
-  //   await Firebase.initializeApp();
-  // }
+  final _auth = FirebaseAuth.instance;
+
+  @override
+  void initState() {
+    super.initState();
+    initializeFirebase();
+  }
+
+  Future<void> initializeFirebase() async {
+    await Firebase.initializeApp();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,25 +50,55 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(height: space),
                 CustomInputField(
                   text: "Бүтэн нэрээ оруулна уу",
+                  onChanged: (value) {
+                    setState(() {
+                      _name = value;
+                    });
+                  },
                 ),
                 SizedBox(height: space),
                 CustomInputField(
                   text: "Цахим шуудангаа оруулна уу",
+                  onChanged: (value) {
+                    setState(() {
+                      _email = value;
+                    });
+                  },
                 ),
                 SizedBox(height: space),
                 CustomInputField(
                   text: "Нууц үгээ оруулна уу",
+                  onChanged: (value) {
+                    setState(() {
+                      _password = value;
+                    });
+                  },
                 ),
                 SizedBox(height: space),
                 CustomInputField(
                   text: "Нууц үгээ дахин оруулна уу",
+                  onChanged: (value) {
+                    setState(() {
+                      _password = value;
+                    });
+                  },
                 ),
                 SizedBox(height: space * 2),
                 FlatButton(
                   text: "Бүртгүүлэх",
                   path: '/login',
                   isPrimary: true,
-                  onPress: () {},
+                  onPress: () async {
+                    print("pressed");
+                    try {
+                      final _newuser =
+                          await _auth.createUserWithEmailAndPassword(
+                              email: _email!, password: _password!);
+                      Navigator.pushNamed(context, '/login');
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
                 ),
                 SizedBox(
                   height: space,
@@ -75,10 +111,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     CustomTextButton(
-                      text: "Нэвтрэх",
-                      path: '/login',
-                      onPressed: () {},
-                    )
+                        text: "Нэвтрэх", path: '/login', onPressed: () {})
                   ],
                 )
               ],

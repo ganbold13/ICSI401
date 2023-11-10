@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_finance/firebase_options.dart';
 import 'package:personal_finance/screens/bill_payment_done.dart';
 
 import './screens/splash.dart';
@@ -16,7 +17,7 @@ import 'screens/wallet.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   print("Hello");
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   print("Hello1");
   runApp(const MyApp());
 }

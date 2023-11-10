@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:personal_finance/components/bill_amounts.dart';
-import 'package:personal_finance/components/bill_details_header.dart';
 import 'package:personal_finance/components/bill_logo.dart';
 import 'package:personal_finance/components/flat_button.dart';
 import 'package:personal_finance/components/header_bg.dart';

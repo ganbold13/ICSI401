@@ -3,17 +3,15 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class CustomInputField extends StatelessWidget {
   final String text;
+  final ValueChanged<String> onChanged;
   double? width;
   double? radius;
-  Widget? pre;
-  Widget? suf;
   CustomInputField(
       {super.key,
       required this.text,
-      this.pre,
-      this.suf,
       this.radius,
-      this.width});
+      this.width,
+      required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +23,7 @@ class CustomInputField extends StatelessWidget {
         color: Colors.white,
       ),
       child: TextField(
+        onChanged: onChanged,
         decoration: InputDecoration(
           hoverColor: Theme.of(context).colorScheme.primary,
           border: OutlineInputBorder(
@@ -36,8 +35,6 @@ class CustomInputField extends StatelessWidget {
           labelStyle: Theme.of(context).textTheme.labelSmall,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-          prefix: pre,
-          suffix: suf,
         ),
       ),
     );

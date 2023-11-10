@@ -32,6 +32,7 @@ class AddExpenseScreen extends StatelessWidget {
                   CustomInputField(
                     text: "",
                     width: double.infinity,
+                    onChanged: (value) {},
                   ),
                   const SizedBox(height: 30),
                   Text(
@@ -42,6 +43,7 @@ class AddExpenseScreen extends StatelessWidget {
                   CustomInputField(
                     text: "",
                     width: double.infinity,
+                    onChanged: (value) {},
                   ),
                   const SizedBox(height: 30),
                   Text(
@@ -52,6 +54,7 @@ class AddExpenseScreen extends StatelessWidget {
                   CustomInputField(
                     text: "",
                     width: double.infinity,
+                    onChanged: (value) {},
                   ),
                   const SizedBox(height: 30),
                   Text(
@@ -62,6 +65,7 @@ class AddExpenseScreen extends StatelessWidget {
                   CustomInputField(
                     text: "",
                     width: double.infinity,
+                    onChanged: (value) {},
                   ),
                 ],
               ),
