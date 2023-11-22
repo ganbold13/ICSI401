@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:personal_finance/components/bill_amounts.dart';
 import 'package:personal_finance/components/bill_details_header.dart';
 import 'package:personal_finance/components/checkbox_button.dart';
@@ -8,7 +10,28 @@ import 'package:personal_finance/components/navbar.dart';
 import 'package:personal_finance/components/popup.dart';
 
 class BillDetailsScreen extends StatelessWidget {
-  const BillDetailsScreen({Key? key}) : super(key: key);
+  final String id;
+  final String name;
+  final String date;
+  final double amount;
+  final String type;
+  BillDetailsScreen(
+      {Key? key,
+      required this.name,
+      required this.date,
+      required this.amount,
+      required this.id,
+      required this.type})
+      : super(key: key);
+
+  final FirebaseFirestore db = FirebaseFirestore.instance;
+
+  Future<dynamic> fetchUserData() async {
+    QuerySnapshot<Map<String, dynamic>> querySnapshot =
+        await db.collection("Bills").get();
+
+    return querySnapshot.docs;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +51,11 @@ class BillDetailsScreen extends StatelessWidget {
                     children: [
                       BillDetailsHeader(
                         image: "assets/images/youtube_icon.png",
-                        title: "Youtube Premium",
-                        date: "2014 Feb 07",
+                        title: name,
+                        date: date,
                       ),
                       const SizedBox(height: 30),
-                      BillAmounts(price: 11.99, tax: 1.99),
+                      BillAmounts(price: amount, tax: amount * 0.1),
                       const SizedBox(height: 30),
                       Text(
                         "Төлбөрийн хэрэсгслээ сонго",
@@ -56,7 +79,34 @@ class BillDetailsScreen extends StatelessWidget {
                     text: "Төлөх",
                     path: "/billpayment",
                     isPrimary: true,
-                    onPress: () {},
+                    onPress: () async {
+                      await db.collection("History").add({
+                        "id": id,
+                        "name": name,
+                        "date": date,
+                        "amount": amount,
+                        "type": type
+                      });
+                      await db.collection("Bills").get().then((value) {
+                        for (DocumentSnapshot doc in value.docs) {
+                          if (doc['billId'] == id) {
+                            doc.reference.delete();
+                          }
+                        }
+                      });
+
+                      Fluttertoast.showToast(
+                          msg: "Төлбөр амжилттай",
+                          toastLength: Toast.LENGTH_LONG,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor:
+                              const Color.fromARGB(255, 54, 244, 111),
+                          textColor: Colors.white,
+                          fontSize: 20.0,
+                          webPosition: "center");
+                      Navigator.pushNamed(context, "/wallet");
+                    },
                   )
                 ],
               ),

@@ -16,9 +16,7 @@ import 'screens/wallet.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  print("Hello");
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  print("Hello1");
   runApp(const MyApp());
 }
 
@@ -88,10 +86,10 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const RegisterScreen(),
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
-        '/wallet': (context) => const WalletScreen(),
+        '/wallet': (context) => WalletScreen(),
         '/connectwallet': (context) => const ConnectWalletScreen(),
         '/addexpenses': (context) => const AddExpenseScreen(),
-        '/billdetails': (context) => const BillDetailsScreen(),
+        '/billdetails': (context) => WalletScreen(),
         '/billpayment': (context) => const BillPaymentScreen(),
         '/billdone': (context) => const BillPaymentDoneScreen(),
       },

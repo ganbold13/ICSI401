@@ -80,14 +80,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   path: '/login',
                   isPrimary: true,
                   onPress: () async {
-                    print("pressed");
                     try {
                       await _auth.createUserWithEmailAndPassword(
                           email: _email!, password: _password!);
-                      db.collection('users').add({
-                        'name': _name,
-                        'email': _email,
-                      });
+                      await db
+                          .collection("Users")
+                          .add({'username': _name, 'email': _email});
                       Navigator.pushNamed(context, '/login');
                     } catch (e) {
                       print(e);

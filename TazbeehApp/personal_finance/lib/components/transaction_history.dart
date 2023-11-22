@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_finance/components/transaction_pending_item.dart';
+import 'package:personal_finance/components/home/transaction_history_item.dart';
 
-class TransactionPending extends StatelessWidget {
-  TransactionPending({super.key});
+class TransactionHistory extends StatelessWidget {
+  TransactionHistory({super.key});
 
   final FirebaseFirestore db = FirebaseFirestore.instance;
 
   Future<dynamic> fetchUserData() async {
     QuerySnapshot<Map<String, dynamic>> querySnapshot =
-        await db.collection("Bills").get();
+        await db.collection("History").get();
 
     return querySnapshot.docs;
   }
@@ -27,15 +27,14 @@ class TransactionPending extends StatelessWidget {
                 child: ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return PendingItem(
-                      id: snapshot.data[index]['billId'],
-                      name: snapshot.data[index]['billName'],
-                      date: snapshot.data[index]['billDate'],
-                      image:
-                          "assets/images/${snapshot.data[index]['billName']}.png",
-                      amount: snapshot.data[index]['billAmount'],
-                      type: snapshot.data[index]["billType"],
-                    );
+                    return HistoryItem(
+                        image:
+                            "assets/images/${snapshot.data[index]["name"]}.png",
+                        name: snapshot.data[index]["name"],
+                        date: snapshot.data[index]["date"],
+                        amount: snapshot.data[index]["type"] == "income"
+                            ? snapshot.data[index]["amount"]
+                            : -snapshot.data[index]["amount"]);
                   },
                 ));
           } else if (snapshot.hasError) {

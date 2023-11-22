@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finance/screens/bill_details.dart';
 
 class PendingItem extends StatelessWidget {
   final String image;
-  final String name;
-  final String date;
-  final double amount;
-  const PendingItem(
-      {super.key,
-      required this.image,
-      required this.name,
-      required this.date,
-      required this.amount});
-
-  String calculateText() {
-    if (amount > 0) {
-      return "+ \$ $amount";
-    } else {
-      return "+ \$ ${-amount}";
-    }
-  }
+  final String id;
+  final String? name;
+  final String? date;
+  final double? amount;
+  final String type;
+  const PendingItem({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.date,
+    required this.amount,
+    required this.id,
+    required this.type,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +40,14 @@ class PendingItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      name,
+                      name ?? "Name",
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      date,
+                      date ?? "Date",
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
@@ -61,7 +59,18 @@ class PendingItem extends StatelessWidget {
             ),
           ],
         ),
-        TextButton(onPressed: () {}, child: const Text("Төлөх"))
+        TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => BillDetailsScreen(
+                        id: id,
+                        name: name!,
+                        date: date!,
+                        amount: amount!,
+                        type: type,
+                      )));
+            },
+            child: const Text("Төлөх"))
       ],
     );
   }

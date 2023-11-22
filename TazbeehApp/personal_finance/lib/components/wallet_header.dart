@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:personal_finance/components/icon_button.dart';
 
 class WalletHeader extends StatelessWidget {
-  const WalletHeader({super.key});
+  final double totalBalance;
+  const WalletHeader({super.key, required this.totalBalance});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class WalletHeader extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            '\$ 2548.00',
+            '\$ $totalBalance',
             style: Theme.of(context)
                 .textTheme
                 .displaySmall!

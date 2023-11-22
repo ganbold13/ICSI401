@@ -68,7 +68,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   path: '/home',
                   isPrimary: true,
                   onPress: () async {
-                    print("pressed");
                     try {
                       await _auth.signInWithEmailAndPassword(
                           email: _email!, password: _password!);

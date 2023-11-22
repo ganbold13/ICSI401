@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:personal_finance/data/balanceModel.dart';
 
 class BalanceCard extends StatelessWidget {
-  const BalanceCard({super.key});
+  final BalanceModel balanceModel;
+
+  const BalanceCard({super.key, required this.balanceModel});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +19,13 @@ class BalanceCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           color: Theme.of(context).colorScheme.primary,
         ),
-        child: const Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
@@ -51,8 +54,8 @@ class BalanceCard extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "\$ 2,548.00",
-                  style: TextStyle(
+                  "\$ ${balanceModel.income - balanceModel.expense}",
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.w700,
@@ -66,7 +69,7 @@ class BalanceCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         ImageIcon(
@@ -82,10 +85,10 @@ class BalanceCard extends StatelessWidget {
                                 fontWeight: FontWeight.w500)),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
-                      "\$ 1,840.00",
-                      style: TextStyle(
+                      "\$ ${balanceModel.income}",
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 22,
                         fontWeight: FontWeight.w700,
@@ -96,7 +99,7 @@ class BalanceCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
                         ImageIcon(
@@ -112,10 +115,10 @@ class BalanceCard extends StatelessWidget {
                                 fontWeight: FontWeight.w500)),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
-                      "\$ 284.00",
-                      style: TextStyle(
+                      "\$ ${balanceModel.expense}",
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 22,
                         fontWeight: FontWeight.w700,

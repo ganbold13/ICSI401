@@ -15,7 +15,7 @@ dependencies:
   firebase_core: ^2.22.0
   firebase_auth: ^4.1.5
   cloud_firestore: ^4.13.0
-  
+  fluttertoast: ^8.2.4
 
 dev_dependencies:
   flutter_test:
@@ -30,25 +30,14 @@ flutter:
   assets:
     - assets/images/onboarding.png
     - assets/images/login.png
-    - assets/images/Rectangle 1.png
-    - assets/images/specular.png
     - assets/images/home_page_top.png
     - assets/images/headerBell.png
     - assets/images/Icon.png
     - assets/images/down_arrow.png
     - assets/images/up_arrow.png
-    - assets/images/upwork_image.png
-    - assets/images/account_icon.png
-    - assets/images/home_icon.png
-    - assets/images/personal_icon.png
+    - assets/images/Upwork.png
     - assets/images/person_icon.png
-    - assets/images/statistics_icon.png
-    - assets/images/paypal_icon.png
-    - assets/images/youtube_icon.png
-    - assets/images/right_shape.png
-    - assets/images/logo_paypal.png
-    - assets/images/dollar.png
+    - assets/images/Paypal.png
+    - assets/images/Youtube.png
+    - assets/images/Netflix.png
     - assets/images/send.png
-    - assets/images/plus.png
-    - assets/images/qr_code.png
-    - assets/images/bank.png
